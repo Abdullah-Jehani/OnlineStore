@@ -1,0 +1,259 @@
+html{
+    font-size: 62.5%;
+}
+body{
+   
+   margin: 0 auto  ;
+ font-family: 'poppins';
+ font-family: 'Playfair Display';
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto; /* to put context just in the midle of the page */
+
+}
+header{
+    display: flex ; 
+    justify-content: space-between;
+    align-items:  center;
+   margin: 4em;
+   }
+  
+nav ul{
+    list-style-type: none;
+    display: flex; 
+  gap: 4.1em;
+   
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem; 
+    text-transform: uppercase;
+    position: relative; /* to put gray line whenever we hover */ 
+     
+}
+nav a.active:before{ /* this one we do it only by before because it will remain static not dynamic while others needf to be moved when ever when we hover */ 
+    position: absolute; /* so all the a's are position relative as we see up , so the element must be absolute */ 
+    content: ""; 
+    /*   
+    necessery */
+    width: 35%; 
+   border-bottom: 2px black solid;
+   bottom: -2;
+}
+nav a:before{ /* this for all the nav , whenever when we hober gray line will be displayed , */
+position: absolute; 
+content: ""; 
+width:0% ; /* default state is un-visible*/
+border-bottom: 2px gray solid;
+bottom: -6px;
+transition-duration: .3s;
+  /* illustrate what happens when we hober*/
+}
+main{
+    display: flex; 
+    gap: 8em;
+    margin-top: 12em; 
+}
+.left-col{
+   width: 45%; /* from the container main */
+}
+.right-col{
+    width: 55%; /* to take all the available width */
+}h1{
+   font-weight: normal;
+    font: 'Playfair Display';
+    font-size: 5.2rem;
+    margin:0em;
+}
+.subhead{
+    font-size: 1.8rem; 
+
+}
+.cta-btns{
+    display: flex; 
+    gap: 3em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+.primary-cta{
+    background-color: #F1E2D1 ; 
+    font-size: 1.8rem; 
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  padding: 1em 2em;
+   border-radius: 1.9em;
+   font-family: 'poppins';
+}
+.secondary-cta{
+   
+     /* because it has two elements */
+   
+    font-size: 1.8rem; 
+    text-decoration: none; 
+    color: black;
+   
+   /* only for right and left */ 
+margin-top: 1em;
+}
+.secondary-cta svg{
+   width: 20px;
+transition-duration: .6s;
+}
+.news{
+    height: 200px;
+    width: 550px; 
+    border: 1px black solid ;
+    color: black; 
+    background-color: white;
+    border-radius: 10px;
+    font-size: medium ; 
+    font-family: 'poppins';
+    display: flex;
+    align-items: center   ;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 3em;
+}
+.news::before{
+    position: absolute;
+    content:"";
+    background: url('../images/confetti.svg');
+    width: 40%; 
+    height: 70%;
+    top: -20;
+    left: -60;
+}
+.employees{
+ 
+   font-family: 'poppins';
+   font-size: xx-large;
+   font-weight: lighter ; 
+  padding-left: 2em;
+   margin-top: -10px;
+   
+}
+.details{
+   padding-left: 1em;
+    padding-top: 1em;
+    line-height: 30px;
+}
+.right-col {
+    display: grid; 
+    gap: 2.3em    ;
+    grid-template-areas: 
+    "left right" 
+    "left bottom";
+}
+.card {
+    border-radius: .8em;
+    border: 1px black solid ; 
+    padding: 1.1em; /* to pad the white bord in all directions */
+    display: flex;
+    align-items: end; /*any item wiln placed at the end */
+    background-size: 150% ;
+    transition: background-size .9s;
+}
+.card1 {
+    grid-area: left;
+    background-image: url('../images/clothing1.jpg');
+    position: relative;
+}
+.card1:before {
+    position: absolute;
+    content: "";
+    background: url('../images/tag.svg') no-repeat;
+    width: 100%;
+    height: 100%;
+    top: -40px;
+    left: -120px;
+    pointer-events: none;
+}
+.card2 {
+    grid-area: right;
+    background-image: url('../images/clothing2.jpg');
+}
+.card3 {
+    background-image: url('../images/clothing3.jpg');
+}
+
+.card-details { /* the contents of the card specification */
+    background: white;
+    border-radius: .6em;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 800ms;
+  
+}
+
+.card-details a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.card-details p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+p.product-price {
+    font-size: 1.8rem;
+}
+
+/* Microinteractions */
+
+nav ul li a:hover:before { /* navagation animation */
+    width: 35%;
+}
+
+.primary-cta:hover {
+    background: #E2D1BD;
+    
+}
+
+.secondary-cta:hover svg {
+    transform: translateX(10px);
+}
+.secondary-cta:hover {
+    text-decoration: underline;
+}
+
+.card:hover {
+    background-size: 160%;
+}
+
+.card:hover  .card-details { 
+    transform: translatey(-25px);
+}
+/* .overlay {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+}
+
+@keyframes reveal {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+} */
